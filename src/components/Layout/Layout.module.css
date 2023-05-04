@@ -1,0 +1,7 @@
+.Header {
+  background-color: gray;
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
