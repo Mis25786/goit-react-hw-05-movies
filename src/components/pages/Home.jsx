@@ -14,6 +14,8 @@ const Home = () => {
     setLoading(true);
     getMovieTrending()
       .then(data => {
+        console.log(data.results);
+
         setLoading(false);
         setSearchResult(data.results);
       })
@@ -24,14 +26,14 @@ const Home = () => {
 
   return (
     <div>
+      <h1>Trending movie week</h1>
       {loading && <Loader />}
       {error && toast.error(`Sorry, there was an error. Please try again.`)}
-      {searchResult.map(({ title, id }) => (
-        <li>
-          <Link to="">{title}</Link>
+      {searchResult.map(movi => (
+        <li key={movi.id}>
+          <Link to={`${movi}`}>{movi.title}</Link>
         </li>
       ))}
-      <h1>Home</h1>
     </div>
   );
 };

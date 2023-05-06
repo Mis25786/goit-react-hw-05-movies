@@ -6,7 +6,7 @@ import { ImSearch } from 'react-icons/im';
 
 import css from './SearchMovie.module.css';
 
-const Searchbar = ({ handleFormSubmit }) => {
+const SearchMovie = ({ handleFormSubmit }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = e => {
@@ -36,7 +36,7 @@ const Searchbar = ({ handleFormSubmit }) => {
           type="text"
           // autocomplete="off"
           // autofocus
-          placeholder="Search images and photos"
+          placeholder="Find your favorite movie"
           value={inputValue}
           onChange={handleInputChange}
         />
@@ -45,8 +45,8 @@ const Searchbar = ({ handleFormSubmit }) => {
   );
 };
 
-Searchbar.propTypes = {
+SearchMovie.propTypes = {
   handleFormSubmit: PropTypes.func.isRequired,
 };
 
-export default Searchbar;
+export default SearchMovie;
