@@ -1,12 +1,12 @@
 import SearchMovie from 'components/SearchMovie/SearchMovie';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import getSearchMovie from 'service/search-api';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from 'components/Loader';
-import MovieList from 'components/MovieList/MovieList';
+// import MovieList from 'components/MovieList/MovieList';
 import { useCustomContext } from 'components/MovieListContext/MovieListContext';
 
 const Movies = () => {

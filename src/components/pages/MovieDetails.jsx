@@ -1,4 +1,4 @@
-import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
+// import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import getDetailsMovie from 'service/details-api';
@@ -22,12 +22,13 @@ const MovieDetails = () => {
     const localSt = localStorage.getItem('todo');
     console.log('localSt :>> ', localSt);
     if (localSt) {
-      setMovieDetails(JSON.parse(localSt).find(el => (el.id = movieId)));
+      setMovieDetails(JSON.parse(localSt).find(el => el.id === movieId));
     }
   }, [movieId]);
 
   useEffect(() => {
     console.log('movieDetails :>> ', movieDetails);
+
     getDetailsMovie(movieDetails).then(data => {
       // getDetailsMovie(movieId).then(data => {
       setMovieInfo(data);
