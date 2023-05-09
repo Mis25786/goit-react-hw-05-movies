@@ -45,8 +45,8 @@ const SearchMovie = ({ handleFormSubmit }) => {
   );
 };
 
-// SearchMovie.propTypes = {
-//   handleFormSubmit: PropTypes.func.isRequired,
-// };
+SearchMovie.propTypes = {
+  handleFormSubmit: PropTypes.func.isRequired,
+};
 
 export default SearchMovie;
