@@ -1,28 +1,29 @@
 import { Link, useLocation } from 'react-router-dom';
 import { getImage } from './../../service/get-img';
 
-const MovieList = ({ searchMoviesList }) => {
+const TopMoviesList = ({ topMovieWeek }) => {
   const location = useLocation();
 
   return (
-    <ul>
-      {searchMoviesList &&
-        searchMoviesList.map(({ id, title, poster_path }) => (
-          <li key={id}>
-            <div>
+    <>
+      <ul>
+        {topMovieWeek.map(({ id, title, poster_path }) => (
+          <ul key={id}>
+            <li>
               <img
                 src={poster_path ? getImage(poster_path) : 'Image is missing'}
                 alt={title}
                 width={100}
               />
-            </div>
-            <Link to={`${id}`} state={{ from: location }}>
+            </li>
+            <Link to={`movies/${id}`} state={{ from: location }}>
               {title}
             </Link>
-          </li>
+          </ul>
         ))}
-    </ul>
+      </ul>
+    </>
   );
 };
 
-export default MovieList;
+export default TopMoviesList;

@@ -1,16 +1,16 @@
-const MovieDetailsCard = ({
-  poster_path,
-  title,
-  overview,
-  genres,
-  vote_average,
-  backdrop_path,
-}) => {
+import { getImage } from './../../service/get-img';
+
+const MovieDetailsCard = ({ movieInfo }) => {
+  const { poster_path, title, vote_average, overview, genres } = movieInfo;
+
   return (
     <>
       <div>
-        <img src={backdrop_path ? backdrop_path : 'Image is missing'} alt="" />
-        <img src={poster_path ? poster_path : 'Image is missing'} alt="" />
+        <img
+          src={poster_path ? getImage(poster_path) : 'Image is missing'}
+          alt={title}
+          width={200}
+        />
         <h1>{title ? title : 'No information available'} </h1>
         <h3>Overview </h3>
         <p>{overview ? overview : 'No information available'}</p>
