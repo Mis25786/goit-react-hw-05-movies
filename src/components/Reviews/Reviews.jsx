@@ -9,6 +9,8 @@ const Reviews = () => {
 
   useEffect(() => {
     getReviewsMovie(movieId).then(data => {
+      console.log('data :>> ', data);
+      console.log('data.results :>> ', data.results);
       setReviews(data.results);
     });
   }, [movieId]);
@@ -19,15 +21,16 @@ const Reviews = () => {
         {!reviews && (
           <p>Sorry, this information is not available for this movie</p>
         )}
-        {reviews &&
-          reviews.map(({ id, author, content }) => (
-            <li key={id}>
-              <h2>
-                {author ? `Author:${author}` : 'No information available'}
-              </h2>
-              <p>{content ? content : 'No information available'}</p>
-            </li>
-          ))}
+        {reviews?.length > 0
+          ? reviews.map(({ id, author, content }) => (
+              <li key={id}>
+                <h2>
+                  {author ? `Author:${author}` : 'No information available'}
+                </h2>
+                <p>{content ? content : 'No information available'}</p>
+              </li>
+            ))
+          : 'No information available'}
       </ul>
     </>
   );

@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { getImage } from './../../service/get-img';
 import css from './MovieList.module.css';
+import DEFAULT_FOTO from '../../img/200x300 zahlushka foto.png';
 
 const MovieList = ({ searchMoviesList }) => {
   const location = useLocation();
@@ -14,7 +15,7 @@ const MovieList = ({ searchMoviesList }) => {
             <li key={id} className={css['BoxMovies']}>
               <div>
                 <img
-                  src={poster_path ? getImage(poster_path) : 'Image is missing'}
+                  src={poster_path ? getImage(poster_path) : DEFAULT_FOTO}
                   alt={title}
                   width={100}
                 />

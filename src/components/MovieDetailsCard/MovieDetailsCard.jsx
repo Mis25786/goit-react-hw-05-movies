@@ -1,5 +1,6 @@
 import { getImage } from './../../service/get-img';
 import css from './MovieDetailsCard.module.css';
+import DEFAULT_FOTO from '../../img/200x300 zahlushka foto.png';
 
 const MovieDetailsCard = ({ movieInfo }) => {
   const { poster_path, title, vote_average, overview, genres } = movieInfo;
@@ -9,7 +10,7 @@ const MovieDetailsCard = ({ movieInfo }) => {
       <div className={css['ContainerCardMovieInfo']}>
         <div className={css['CardMovieInfoImg']}>
           <img
-            src={poster_path ? getImage(poster_path) : 'Image is missing'}
+            src={poster_path ? getImage(poster_path) : DEFAULT_FOTO}
             alt={title}
             width={200}
           />
@@ -21,12 +22,16 @@ const MovieDetailsCard = ({ movieInfo }) => {
           <p>{overview !== '' ? overview : 'No information available'}</p>
           <h3>Genres</h3>
           <div>
-            {genres.lenght > 0
+            {genres?.length > 0
               ? genres.map(({ name }) => <p>{name}</p>)
               : 'No information available'}
           </div>
           <h3>Rating</h3>
-          <p>{vote_average ? vote_average : 'No information available'}</p>
+          <p>
+            {vote_average
+              ? vote_average.toFixed(1)
+              : 'No information available'}
+          </p>
         </div>
       </div>
     </>

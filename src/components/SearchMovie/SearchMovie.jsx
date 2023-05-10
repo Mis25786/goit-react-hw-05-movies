@@ -71,22 +71,6 @@ const SearchMovie = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    if (searchParams === '') return;
-
-    setInputValue(searchParams.get('query') ?? '');
-
-    async function fetchMovieList() {
-      const movieList = await getSearchMovie(searchParams.get('query'));
-      const movieListArray = await movieList.results;
-
-      setMoviesList(movieListArray);
-    }
-
-    fetchMovieList();
-    setInputValue('');
-  }, [searchParams]);
-
   const handleInputChange = e => {
     setInputValue(e.currentTarget.value.toLowerCase());
   };
@@ -102,9 +86,33 @@ const SearchMovie = () => {
     const query = inputValue !== '' ? { query: inputValue } : {};
     setSearchParams(query);
 
-    getSearchMovie(inputValue).then(movi => setMoviesList(movi.results));
+    getSearchMovie(inputValue).then(movi => {
+      if (movi.results.length > 0) {
+        setMoviesList(movi.results);
+      } else {
+        toast.info('There are no movies for your request.');
+        setMoviesList([]);
+      }
+    });
+
     setInputValue('');
   };
+
+  useEffect(() => {
+    if (searchParams === '') return;
+
+    setInputValue(searchParams.get('query') ?? '');
+
+    async function fetchMovieList() {
+      const movieList = await getSearchMovie(searchParams.get('query'));
+      const movieListArray = await movieList.results;
+
+      setMoviesList(movieListArray);
+    }
+
+    fetchMovieList();
+    setInputValue('');
+  }, [searchParams]);
 
   return (
     <>

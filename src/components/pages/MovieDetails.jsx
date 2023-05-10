@@ -1,8 +1,10 @@
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { getDetailsMovie } from './../../service/movies-api';
 import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
 import BackBtnLink from 'components/BackBtnLink/BackBtnLink';
+import Loader from './../Loader/Loader';
 
 const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState([]);
@@ -32,7 +34,9 @@ const MovieDetails = () => {
         </li>
       </ul>
 
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

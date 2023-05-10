@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastMovie } from 'service/movies-api';
 import { getImage } from './../../service/get-img';
-
-const DEFAULT_FOTO = '../../img/200x300 zahlushka foto.png';
+import DEFAULT_FOTO from '../../img/200x300 zahlushka foto.png';
 
 const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
