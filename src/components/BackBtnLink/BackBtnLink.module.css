@@ -1,0 +1,24 @@
+.BtnBack {
+  display: flex;
+  padding: 7px;
+  align-items: center;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.BtnBack:focus,
+.BtnBack:hover {
+  border: 1px solid red;
+  background-color: aquamarine;
+}
+
+.BtnBackText {
+  color: black;
+}
+.BtnBackText:focus,
+.BtnBackText:hover {
+  text-decoration: none;
+}

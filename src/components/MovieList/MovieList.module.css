@@ -1,0 +1,21 @@
+.MoviesListTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.BoxMoviesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0;
+}
+
+.BoxMovies {
+  width: 100px;
+  margin-bottom: 10px;
+  padding: 0;
+  cursor: pointer;
+}

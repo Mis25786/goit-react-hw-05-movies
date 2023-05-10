@@ -10,7 +10,10 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
-    getDetailsMovie(movieId).then(data => setMovieInfo(data));
+    getDetailsMovie(movieId).then(data => {
+      console.log('movieInfo :>> ', data);
+      setMovieInfo(data);
+    });
   }, [movieId]);
 
   return (
@@ -20,7 +23,7 @@ const MovieDetails = () => {
       <MovieDetailsCard movieInfo={movieInfo} />
 
       <ul>
-        <p>Additional information</p>
+        <h3>Additional information</h3>
         <li>
           <Link to="Cast">Cast</Link>
         </li>
