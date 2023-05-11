@@ -8,7 +8,12 @@ const Home = () => {
   const [topMovieWeek, setTopMovieWeek] = useState([]);
 
   useEffect(() => {
-    getMovieTrending().then(data => setTopMovieWeek(data.results));
+    getMovieTrending().then(data => {
+      if (data.results?.length === 0) {
+        toast.info('An error occurred. Please restart the page!');
+      }
+      setTopMovieWeek(data.results);
+    });
   }, []);
 
   return (
