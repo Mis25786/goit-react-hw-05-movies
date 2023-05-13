@@ -19,25 +19,27 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <main>
-      <BackBtnLink />
+    <>
+      <main>
+        <BackBtnLink />
 
-      <MovieDetailsCard movieInfo={movieInfo} />
+        <MovieDetailsCard movieInfo={movieInfo} />
 
-      <ul>
-        <h3>Additional information</h3>
-        <li>
-          <Link to="Cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
+        <ul>
+          <h3>Additional information</h3>
+          <li>
+            <Link to="Cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
 
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
-    </main>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </main>
+    </>
   );
 };
 
